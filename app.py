@@ -10,7 +10,7 @@ app.secret_key = config.secret_key
 
 @app.route("/")
 def index():
-    return "Tähän tulee ruokareseptit"
+    return render_template("index.html")
 
 @app.route("/register")
 def register():
@@ -41,7 +41,7 @@ def login():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-        
+
         sql = "SELECT password_hash FROM users WHERE username = ?"
         password_hash = db.query(sql, [username])[0][0]
 
