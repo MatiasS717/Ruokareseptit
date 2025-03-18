@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Reseptin muokkaus</title>
+</head>
+
+<body>
+  <hl>Reseptin muokkaus</hl>
+  <form action="/update_item" method="post">
+    <p>
+      Otsikko: <br />
+      <input type="text" name="title" value="{{ item.title }}"/>
+    </p>
+    <p>
+      Ainekset: <br />
+      <textarea name="ingredients" rows="8" cols="60">{{ item.ingredients }}</textarea>
+    </p>
+    <p>
+        Valmistusohje: <br />
+        <textarea name="recipe" rows="20" cols="60">{{ item.recipe }}</textarea>
+    </p>
+    <p>
+        Luokittelu: <br />
+        <input type="text" name="classification" value="{{ item.classification }}" />
+    </p>
+    <input type="hidden" name="item_id" value="{{ item.id }}" />
+    <input type="submit" value="Päivitä resepti" />
+  </form>
+</body>
+
+</html>
