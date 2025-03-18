@@ -19,13 +19,14 @@ def new_item():
 @app.route("/create_item", methods=["POST"])
 def create_item():
     title = request.form["title"]
-    description = request.form["description"]
-    start_price = request.form["start_price"]
+    ingredients = request.form["ingredients"]
+    recipe = request.form["recipe"]
+    classification = request.form["classification"]
     user_id = session["user_id"]
 
-    sql = """INSERT INTO items (title, description, start_price, user_id)
-             VALUES (?, ?, ?, ?)"""
-    db.execute(sql, [title, description, start_price, user_id])
+    sql = """INSERT INTO items (title, ingredients, recipe, classification, user_id)
+             VALUES (?, ?, ?, ?, ?)"""
+    db.execute(sql, [title, ingredients, recipe, classification, user_id])
 
     return redirect("/")
 

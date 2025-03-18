@@ -7,7 +7,8 @@ CREATE TABLE users (
 CREATE TABLE items (
     id INTEGER PRIMARY KEY,
     title TEXT,
-    description TEXT,
-    start_price INTEGER,
+    ingredients TEXT,
+    recipe TEXT,
+    classification TEXT,
     user_id INTEGER REFERENCES users
 );
