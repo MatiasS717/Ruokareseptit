@@ -11,4 +11,5 @@
 ## Nykytilanne
 - Käyttäjä pystyy luomaan tunnuksen ja kirjautumaan sisään sovellukseen.
 - Käyttäjä pystyy lisäämään sovellukseen reseptejä. Lisäksi käyttäjä pystyy muokkaamaan ja poistamaan reseptejä.
+- Käyttäjä näkee sovellukseen lisätyt reseptit. Käyttäjä näkee sekä itse lisäämänsä että muiden käyttäjien lisäämät reseptit.
 - Käyttäjä pystyy etsimään reseptejä otsikon ja ainesosien perusteella.
