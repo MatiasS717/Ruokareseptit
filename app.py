@@ -83,9 +83,17 @@ def update_item():
         abort(403)
 
     title = request.form["title"]
+    if not title or len(title) > 50:
+        abort(403)
     ingredients = request.form["ingredients"]
+    if not title or len(ingredients) > 1000:
+        abort(403)
     recipe = request.form["recipe"]
+    if not title or len(recipe) > 1000:
+        abort(403)
     classification = request.form["classification"]
+    if not title or len(classification) > 50:
+        abort(403)
 
     items.update_item(item_id, title, ingredients, recipe, classification)
 

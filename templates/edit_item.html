@@ -10,19 +10,19 @@
   <form action="/update_item" method="post">
     <p>
       Otsikko: <br />
-      <input type="text" name="title" value="{{ item.title }}"/>
+      <input type="text" name="title" value="{{ item.title }}" maxlength="50" required/>
     </p>
     <p>
       Ainekset: <br />
-      <textarea name="ingredients" rows="8" cols="60">{{ item.ingredients }}</textarea>
+      <textarea name="ingredients" rows="8" cols="60" maxlength="1000" required>{{ item.ingredients }}</textarea>
     </p>
     <p>
         Valmistusohje: <br />
-        <textarea name="recipe" rows="20" cols="60">{{ item.recipe }}</textarea>
+        <textarea name="recipe" rows="20" cols="60" maxlength="1000" required>{{ item.recipe }}</textarea>
     </p>
     <p>
         Luokittelu: <br />
-        <input type="text" name="classification" value="{{ item.classification }}" />
+        <input type="text" name="classification" value="{{ item.classification }}" maxlength="50" required/>
     </p>
     <input type="hidden" name="item_id" value="{{ item.id }}" />
     <input type="submit" value="Päivitä resepti" />
