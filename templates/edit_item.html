@@ -25,8 +25,14 @@
         <input type="text" name="classification" value="{{ item.classification }}" maxlength="50" required/>
     </p>
     <input type="hidden" name="item_id" value="{{ item.id }}" />
-    <input type="submit" value="Päivitä resepti" />
+    <input type="submit" name="update" value="Päivitä resepti" />
+    <input type="submit" name="back" value="Takaisin" />
   </form>
+
+  <p>
+    <a href="/">Takaisin</a>
+  </p>
+  
 </body>
 
 </html>

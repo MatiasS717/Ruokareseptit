@@ -13,3 +13,18 @@
 - Käyttäjä pystyy lisäämään sovellukseen reseptejä. Lisäksi käyttäjä pystyy muokkaamaan ja poistamaan reseptejä.
 - Käyttäjä näkee sovellukseen lisätyt reseptit. Käyttäjä näkee sekä itse lisäämänsä että muiden käyttäjien lisäämät reseptit.
 - Käyttäjä pystyy etsimään reseptejä otsikon ja ainesosien perusteella.
+
+## Projektin käynnistäminen
+Suorita seuraavat komennot komentorivissä hakemistossa Ruokareseptit.
+### Luo Pythonin virtuaaliympäristö
+`python3 -m venv venv`
+### Aktivoi virtuaaliympäristö
+`source venv/bin/activate`
+### Asenna flask
+`pip install flask`
+### Luo tietokanta
+`touch database.db`
+### Alusta tietokanta
+`database.db < schema.sql`
+### Käynnistä ohjelma
+`flask run`

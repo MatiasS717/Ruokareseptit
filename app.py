@@ -95,8 +95,8 @@ def update_item():
     if not title or len(classification) > 50:
         abort(403)
 
-    items.update_item(item_id, title, ingredients, recipe, classification)
-
+    if "update" in request.form:
+        items.update_item(item_id, title, ingredients, recipe, classification)
     return redirect("/item/" + str(item_id))
 
 @app.route("/remove_item/<int:item_id>", methods=["GET", "POST"])
