@@ -24,25 +24,17 @@
         Luokittelu: <br />
         <input type="text" name="classification" maxlength="50" required/>
     </p>
+    {% for class in classes %}
     <p>
-      Keittiö: <br />
-      <select name="cuisine">
+      {{ class }}: <br />
+      <select name="classes">
         <option value="">(valitse)</option>
-        <option value="italialainen">italialainen</option>
-        <option value="ranskalainen">ranskalainen</option>
-        <option value="kiinalainen">kiinalainen</option>
-        <option value="amerikkalainen">amerikkalainen</option>
+      {% for option in classes[class] %}
+        <option value="{{ class }}:{{ option }}">{{ option }}</option>
+      {% endfor %}
       </select>
     </p>
-    <p>
-      Vaikeusaste: <br />
-      <select name="difficulty">
-        <option value="">(valitse)</option>
-        <option value="helppo">helppo</option>
-        <option value="haastava">haastava</option>
-        <option value="vaikea">vaikea</option>
-      </select>
-    </p>
+    {% endfor %}
     <input type="submit" value="Luo resepti" />
   </form>
 
