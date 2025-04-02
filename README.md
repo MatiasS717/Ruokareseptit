@@ -13,6 +13,9 @@
 - Käyttäjä pystyy lisäämään sovellukseen reseptejä. Lisäksi käyttäjä pystyy muokkaamaan ja poistamaan reseptejä.
 - Käyttäjä näkee sovellukseen lisätyt reseptit. Käyttäjä näkee sekä itse lisäämänsä että muiden käyttäjien lisäämät reseptit.
 - Käyttäjä pystyy etsimään reseptejä otsikon ja ainesosien perusteella.
+- Sovelluksessa on käyttäjäsivut, jotka näyttävät jokaisesta käyttäjästä tilastoja ja käyttäjän lisäämät reseptit.
+- Käyttäjä pystyy valitsemaan reseptille yhden tai useamman luokittelun.
+- Käyttäjä pystyy lisäämään kommentteja omiin ja muiden käyttäjien resepteihin.
 
 ## Projektin käynnistäminen
 Suorita seuraavat komennot komentorivissä hakemistossa Ruokareseptit.
