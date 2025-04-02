@@ -25,6 +25,21 @@
         <input type="text" name="classification" value="{{ item.classification }}" maxlength="50" required/>
     </p>
     <input type="hidden" name="item_id" value="{{ item.id }}" />
+    {% for class in classes %}
+    <p>
+      {{ class }}: <br />
+      <select name="classes">
+        <option value="">(valitse)</option>
+      {% for option in all_classes[class] %}
+        {% if classes[class] == option %}
+        <option value="{{ class }}:{{ option }}" selected>{{ option }}</option>
+        {% else %}
+        <option value="{{ class }}:{{ option }}">{{ option }}</option>
+        {% endif %}
+      {% endfor %}
+      </select>
+    </p>
+    {% endfor %}
     <input type="submit" name="update" value="Päivitä resepti" />
     <input type="submit" name="back" value="Takaisin" />
   </form>
