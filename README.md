@@ -29,6 +29,7 @@ Suorita seuraavat komennot komentorivissä hakemistossa Ruokareseptit.
 `touch database.db`
 ### Alusta tietokanta
 `sqlite3 database.db < schema.sql`
+
 `sqlite3 database.db < init.sql`
 ### Käynnistä ohjelma
 `flask run`
