@@ -1,10 +1,11 @@
 import secrets
 import sqlite3
+
 from flask import Flask
 from flask import abort, flash, redirect, render_template, request, session
 import markupsafe
+
 import config
-import db
 import items
 import users
 
@@ -37,8 +38,8 @@ def show_user(user_id):
     user = users.get_user(user_id)
     if not user:
         abort(404)
-    items = users.get_items(user_id)
-    return render_template("show_user.html", user=user, items=items)
+    user_items = users.get_items(user_id)
+    return render_template("show_user.html", user=user, items=user_items)
 
 @app.route("/find_item")
 def find_item():
