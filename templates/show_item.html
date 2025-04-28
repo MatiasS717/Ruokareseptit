@@ -10,9 +10,13 @@
   <a href="/remove_item/{{ item.id }}">Poista</a>
 </p>
 {% endif %}
+<p>
+  Ainekset: {{ item.ingredients | show_lines }}
+</p>
+<p>
+  Valmistusohje: {{ item.recipe | show_lines }}
+</p>
 <ul>
-  <li>Ainekset: {{ item.ingredients }}</li>
-  <li>Valmistusohje: {{ item.recipe }}</li>
   <li>Luokittelu: {{ item.classification }}</li>
   <li>Kokki: <a href="/user//{{ item.user_id }}">{{ item.username }} </a></li>
 {% if classes %}
