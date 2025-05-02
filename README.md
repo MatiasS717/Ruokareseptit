@@ -16,6 +16,7 @@
 - Sovelluksessa on käyttäjäsivut, jotka näyttävät jokaisesta käyttäjästä tilastoja ja käyttäjän lisäämät reseptit.
 - Käyttäjä pystyy valitsemaan reseptille yhden tai useamman luokittelun.
 - Käyttäjä pystyy lisäämään kommentteja omiin ja muiden käyttäjien resepteihin.
+- Käyttäjä pystyy poistamaan omia kommenttejaan.
 
 ## Projektin käynnistäminen
 Suorita seuraavat komennot komentorivissä hakemistossa Ruokareseptit.
