@@ -124,8 +124,12 @@ def remove_comment(comment_id):
     check_csrf()
 
     item_id = request.form["item_id"]
+    item = items.get_item(item_id)
+    if not item:
+        abort(403)
 
     items.remove_comment(comment_id)
+
     return redirect("/item/" + str(item_id))
 
 @app.route("/edit_item/<int:item_id>")
