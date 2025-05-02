@@ -212,6 +212,9 @@ def create():
     username = request.form["username"]
     password1 = request.form["password1"]
     password2 = request.form["password2"]
+    if username == "" or password1 == "":
+        flash("VIRHE: kentät eivät saa olla tyhjiä")
+        return redirect("/register")
     if password1 != password2:
         flash("VIRHE: salasanat eivät ole samat")
         return redirect("/register")
