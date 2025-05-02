@@ -17,10 +17,6 @@
     <label for="recipe">Valmistusohje:</label> <br />
     <textarea name="recipe" id="recipe" rows="20" cols="60" maxlength="1000" required></textarea>
   </p>
-  <p>
-    <label for="classification">Luokittelu:</label> <br />
-    <input type="text" name="classification" id="classification" maxlength="50" required/>
-  </p>
   {% for class in classes %}
   <p>
     <label for="class{{ class }}">{{ class }}:</label> <br />

@@ -12,10 +12,10 @@ def get_all_classes():
 
     return classes
 
-def add_item(title, ingredients, recipe, classification, user_id, classes):
-    sql = """INSERT INTO items (title, ingredients, recipe, classification, user_id)
-             VALUES (?, ?, ?, ?, ?)"""
-    db.execute(sql, [title, ingredients, recipe, classification, user_id])
+def add_item(title, ingredients, recipe, user_id, classes):
+    sql = """INSERT INTO items (title, ingredients, recipe, user_id)
+             VALUES (?, ?, ?, ?)"""
+    db.execute(sql, [title, ingredients, recipe, user_id])
 
     item_id = db.last_insert_id()
 
@@ -28,8 +28,12 @@ def add_comment(item_id, user_id, comment):
              VALUES (?, ?, ?)"""
     db.execute(sql, [item_id, user_id, comment])
 
+def remove_comment(comment_id):
+    sql = "DELETE FROM comments WHERE id = ?"
+    db.execute(sql, [comment_id])
+
 def get_comments(item_id):
-    sql = """ SELECT comments.comment, users.id user_id, users.username
+    sql = """ SELECT comments.id, comments.comment, users.id user_id, users.username
               FROM comments, users
               WHERE comments.item_id = ? AND comments.user_id = users.id
               ORDER BY comments.id DESC"""
@@ -51,7 +55,6 @@ def get_item(item_id):
                     items.title,
                     items.ingredients,
                     items.recipe,
-                    items.classification,
                     users.id user_id,
                     users.username
              FROM items, users
@@ -60,13 +63,12 @@ def get_item(item_id):
     result = db.query(sql, [item_id])
     return result[0] if result else None
 
-def update_item(item_id, title, ingredients, recipe, classification, classes):
+def update_item(item_id, title, ingredients, recipe, classes):
     sql = """UPDATE items SET title = ?,
                               ingredients = ?,
-                              recipe = ?,
-                              classification = ?
+                              recipe = ?
                           WHERE id = ?"""
-    db.execute(sql, [title, ingredients, recipe, classification, item_id])
+    db.execute(sql, [title, ingredients, recipe, item_id])
 
     sql = "DELETE FROM item_classes WHERE item_id = ?"
     db.execute(sql, [item_id])

@@ -81,9 +81,6 @@ def create_item():
     recipe = request.form["recipe"]
     if not recipe or len(recipe) > 1000:
         abort(403)
-    classification = request.form["classification"]
-    if not classification or len(classification) > 50:
-        abort(403)
     user_id = session["user_id"]
 
     all_classes = items.get_all_classes()
@@ -98,7 +95,7 @@ def create_item():
                 abort(403)
             classes.append((class_title, class_value))
 
-    items.add_item(title, ingredients, recipe, classification, user_id, classes)
+    items.add_item(title, ingredients, recipe, user_id, classes)
 
     return redirect("/")
 
@@ -119,6 +116,16 @@ def create_comment():
 
     items.add_comment(item_id, user_id, comment)
 
+    return redirect("/item/" + str(item_id))
+
+@app.route("/remove_comment/<int:comment_id>", methods=["POST"])
+def remove_comment(comment_id):
+    require_login()
+    check_csrf()
+
+    item_id = request.form["item_id"]
+
+    items.remove_comment(comment_id)
     return redirect("/item/" + str(item_id))
 
 @app.route("/edit_item/<int:item_id>")
@@ -158,9 +165,6 @@ def update_item():
     recipe = request.form["recipe"]
     if not title or len(recipe) > 1000:
         abort(403)
-    classification = request.form["classification"]
-    if not title or len(classification) > 50:
-        abort(403)
 
     all_classes = items.get_all_classes()
 
@@ -175,7 +179,7 @@ def update_item():
             classes.append((class_title, class_value))
 
     if "update" in request.form:
-        items.update_item(item_id, title, ingredients, recipe, classification, classes)
+        items.update_item(item_id, title, ingredients, recipe, classes)
     return redirect("/item/" + str(item_id))
 
 @app.route("/remove_item/<int:item_id>", methods=["GET", "POST"])

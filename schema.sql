@@ -9,7 +9,6 @@ CREATE TABLE items (
     title TEXT,
     ingredients TEXT,
     recipe TEXT,
-    classification TEXT,
     user_id INTEGER REFERENCES users
 );
 
